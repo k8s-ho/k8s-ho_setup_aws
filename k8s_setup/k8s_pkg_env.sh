@@ -11,7 +11,8 @@ sudo apt-get install \
    ca-certificates \
    curl \
    gnupg \
-   lsb-release
+   lsb-release \
+   net-tools
 
 
 #sudo systemctl stop firewalld
