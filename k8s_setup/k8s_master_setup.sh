@@ -96,7 +96,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable kubelet
 sudo systemctl restart kubelet
 
-sudo kubeadm init --token 777777.7777777777777777 --apiserver-advertise-address=$(PRI_IP) --pod-network-cidr=172.16.0.0/16
+sudo kubeadm init --token 777777.7777777777777777 --pod-network-cidr=172.16.0.0/16
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
