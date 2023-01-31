@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo hostnamectl set-hostname master-k8sHo
+sudo hostnamectl set-hostname $1
 
 PRI_IP=$(ip -f inet addr show eth0| grep 'inet' | awk '{ print $2}' | cut -d "/" -f 1)
 echo " [Private IP] $PRI_IP"
