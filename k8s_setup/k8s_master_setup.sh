@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sudo hostnamectl set-hostname master-k8sHo
+
 PRI_IP=$(ip -f inet addr show eth0| grep 'inet' | awk '{ print $2}' | cut -d "/" -f 1)
 echo " [Private IP] $PRI_IP"
 
@@ -21,8 +23,8 @@ sudo apt-get install -y net-tools
 #sudo systemctl disable firewalld
 sudo ufw disable
 
-echo "$PRI_IP master-k8sHo" | sudo tee -a /etc/hosts
-for (( i=1; i<=3; i++  )); do echo "192.168.0.10$i worker$i-k8sHo" | sudo tee -a /etc/hosts; done
+# echo "$PRI_IP master-k8sHo" | sudo tee -a /etc/hosts
+# for (( i=1; i<=3; i++  )); do echo "192.168.0.10$i worker$i-k8sHo" | sudo tee -a /etc/hosts; done
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
