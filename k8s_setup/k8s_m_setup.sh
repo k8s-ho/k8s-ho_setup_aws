@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
-sudo kubeadm init --token 777777.7777777777777777 --apiserver-advertise-address=192.168.0.100 --pod-network-cidr=172.16.0.0/16
+PRV_IP=$(ip -f inet addr show eth0| grep 'inet' | awk '{ print $2}' | cut -d "/" -f 1)
+sudo kubeadm init --token 777777.7777777777777777 --apiserver-advertise-address=$(PRV_IP) --pod-network-cidr=172.16.0.0/16
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
