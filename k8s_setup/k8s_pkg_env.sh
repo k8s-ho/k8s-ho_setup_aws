@@ -19,7 +19,8 @@ sudo apt-get install \
 #sudo systemctl disable firewalld
 sudo ufw disable
 
-echo "192.168.0.100 master-k8sHo" | sudo tee -a /etc/hosts
+PRI_IP=$(ip -f inet addr show eth0| grep 'inet' | awk '{ print $2}' | cut -d "/" -f 1)
+echo "$PRI_IP master-k8sHo" | sudo tee -a /etc/hosts
 for (( i=1; i<=3; i++  )); do echo "192.168.0.10$i worker$i-k8sHo" | sudo tee -a /etc/hosts; done
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
