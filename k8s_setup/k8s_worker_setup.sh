@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+PRI_IP=$(ip -f inet addr show eth0| grep 'inet' | awk '{ print $2}' | cut -d "/" -f 1)
+echo " [Private IP] $PRI_IP"
+
 cat <<EOF | sudo tee -a /etc/resolv.conf
 nameserver 1.1.1.1 
 nameserver 8.8.8.8 
@@ -10,15 +13,15 @@ sudo apt-get install \
    ca-certificates \
    curl \
    gnupg \
-   lsb-release \
-   net-tools
-
+   lsb-release 
+  
+sudo apt-get install -y net-tools
 
 #sudo systemctl stop firewalld
 #sudo systemctl disable firewalld
 sudo ufw disable
 
-PRI_IP=$(ip -f inet addr show eth0| grep 'inet' | awk '{ print $2}' | cut -d "/" -f 1)
+
 echo "$PRI_IP master-k8sHo" | sudo tee -a /etc/hosts
 for (( i=1; i<=3; i++  )); do echo "192.168.0.10$i worker$i-k8sHo" | sudo tee -a /etc/hosts; done
 
