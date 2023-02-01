@@ -2,6 +2,13 @@
 Created to build kubernetes on AWS without EKS. But I recommend using EKS!! It is simply for my study :)
 
 ---
+### Cluster information (Ubuntu server 20.04)
+- master:1 / worker:3
+- kubeadm version 1.25.0 
+- kubectl version 1.25.0
+- kubelet version 1.25.0
+
+---
 # Usage 
 
 ### 1. Install terraform in Mac OS
