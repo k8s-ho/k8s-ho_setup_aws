@@ -37,7 +37,7 @@ ssh -i [key file path] ubuntu@[public ip]
 ### 4. You just have to wait while it is being created.  
 - Please wait for about 5 minutes (up to 10 minutes??)
 ```bash
-/k8s-ho_setup_aws/k8s_setup/finish_setup.txt
+ls /k8s-ho_setup_aws/k8s_setup/
 ```
 => It will operate in the background and nothing will be visible, and when setup is complete, a finish_setup.txt file will be created in the above path.
 
