@@ -6,6 +6,13 @@ resource "aws_vpc" "k8s_vpc" {
   }
 }
 
+resource "aws_internet_gateway" "k8s-gw" {
+  vpc_id = aws_vpc.k8s_vpc.id
+  tags = {
+    Name = "k8s-ho-gateway"
+  }
+}
+
 resource "aws_subnet" "k8s_subnet" {
   vpc_id            = aws_vpc.k8s_vpc.id
   cidr_block        = "192.168.0.0/16"
@@ -14,25 +21,6 @@ resource "aws_subnet" "k8s_subnet" {
 
   tags = {
     Name = "k8s-ho-subnet"
-  }
-}
-
-resource "aws_network_interface" "k8s_eth0" {
-  subnet_id   = aws_subnet.k8s_subnet.id
-  private_ips = ["192.168.0.100"]
-  attachment {
-    instance     = aws_instance.master.id
-    device_index = 1
-  }
-  tags = {
-    Name = "k8s-ho-interface"
-  }
-}
-
-resource "aws_internet_gateway" "k8s-gw" {
-  vpc_id = aws_vpc.k8s_vpc.id
-  tags = {
-    Name = "k8s-ho-gateway"
   }
 }
 
