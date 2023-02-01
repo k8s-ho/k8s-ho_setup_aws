@@ -31,14 +31,14 @@ terraform apply -> yes
 ### 4. You just have to wait while it is being created.  
 - Please wait for about 5 minutes (up to 10 minutes??)
 ```bash
-k8s-ho_setup_aws/k8s_setup/finish_setup.txt
+/k8s-ho_setup_aws/k8s_setup/finish_setup.txt
 ```
 => It will operate in the background and nothing will be visible, and when setup is complete, a finish_setup.txt file will be created in the above path.
 
 
 ### 5. Join worker nodes to kubernetes
 ```bash
-k8s-ho_setup_aws/k8s_setup/k8s_worker_setup.sh [master node ip]
+/k8s-ho_setup_aws/k8s_setup/k8s_worker_setup.sh [master node private ip]
 ``` 
 => Connect to the worker node and execute the file in the above path     
 => When executing the command, the IP of the master node must be given as an argument !!!
