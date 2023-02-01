@@ -27,7 +27,7 @@ cd k8s-ho_setup_aws
 <br/>      
 
   
-### 3. Setting terraform file & run terraform
+### 3. Setting terraform file & Run terraform
 ```bash
 provider.tf -> set your IAM information
 terraform init
@@ -40,7 +40,7 @@ terraform apply -> yes
 <br/>
   
 ---
-### 💡 Connect node
+### 💡Connection using SSH
 ```bash
 ssh -i [key file path] ubuntu@[public ip]
 ```
