@@ -4,7 +4,7 @@ Created to build kubernetes on AWS without EKS. But I recommend using EKS!! It i
 ---
 # Usage 
 
-### 1. install terraform in Mac OS
+### 1. Install terraform in Mac OS
 ```bash
 brew install terraform
 ```
@@ -17,7 +17,7 @@ cd k8s-ho_setup_aws
 ```
 
 
-### 3. setting terraform file & run terraform
+### 3. Setting terraform file & run terraform
 ```bash
 provider.tf -> set your IAM information
 terraform init
@@ -27,6 +27,12 @@ terraform apply -> yes
 => When terraform execution is completed, it shows the connection ip and private ip.   
 => Remember that the ip of the master node is used below.
 
+---
+### 💡 Connect node
+```bash
+ssh -i [key file path] ubuntu@[public ip]
+```
+---
 
 ### 4. You just have to wait while it is being created.  
 - Please wait for about 5 minutes (up to 10 minutes??)
@@ -44,7 +50,7 @@ terraform apply -> yes
 => When executing the command, the IP of the master node must be given as an argument !!!
 
 
-### rollback
+### ⏱️ Rollback
 ```bash
 terraform destroy -> yes
 ```
