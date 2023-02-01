@@ -60,6 +60,16 @@ cd /k8s-ho_setup_aws/k8s_setup/
 => When executing the command, the IP of the master node must be given as an argument !!!
   
 <br/>        
+
+
+### 6. Now connect to the master. The account uses root.
+```bash
+ssh -i [key file path] ubuntu@[master private ip]
+sudo su
+k get node
+```   
+
+<br/>        
   
 ### ⏱️ Rollback
 ```bash
