@@ -18,4 +18,12 @@ cd k8s-ho_setup_aws
 - setting terraform file & run terraform
 ```bash
 provider.tf -> set your IAM information
+terraform init
+terraform plan
+terraform apply -> yes
+```
+
+- rollback
+```bash
+terraform destroy -> yes
 ```
