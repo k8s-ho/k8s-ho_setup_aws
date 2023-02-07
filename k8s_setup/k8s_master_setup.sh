@@ -18,6 +18,7 @@ source $HOME/.bashrc
 sudo curl -O https://projectcalico.docs.tigera.io/manifests/calico.yaml 
 sudo sed -i -e 's?192.168.0.0/16?172.16.0.0/16?g' calico.yaml
 kubectl apply -f calico.yaml
+# kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 sudo systemctl kubelet restart
 
 sudo su
