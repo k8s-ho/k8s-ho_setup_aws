@@ -15,10 +15,13 @@ echo "alias k=kubectl" | sudo tee -a $HOME/.bashrc
 echo "complete -o default -F __start_kubectl k" | sudo tee -a $HOME/.bashrc
 source $HOME/.bashrc 
 
-sudo curl -O https://projectcalico.docs.tigera.io/manifests/calico.yaml 
-sudo sed -i -e 's?192.168.0.0/16?172.16.0.0/16?g' calico.yaml
-kubectl apply -f calico.yaml
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+#sudo curl -O https://projectcalico.docs.tigera.io/manifests/calico.yaml 
+#sudo sed -i -e 's?192.168.0.0/16?172.16.0.0/16?g' calico.yaml
+#kubectl apply -f calico.yaml
 # kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+
 sudo systemctl kubelet restart
 
 sudo su
