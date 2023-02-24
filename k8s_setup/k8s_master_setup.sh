@@ -24,6 +24,6 @@ kubectl apply -f kube-flannel.yml
 #kubectl apply -f calico.yaml
 # kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 
-sudo systemctl kubelet restart
+sudo systemctl restart kubelet 
 
 sudo su
