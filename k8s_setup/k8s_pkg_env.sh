@@ -5,7 +5,7 @@ sudo hostnamectl set-hostname $1
 PRI_IP=$(ip -f inet addr show eth0| grep 'inet' | awk '{ print $2}' | cut -d "/" -f 1)
 echo " [Private IP] $PRI_IP"
 
-cat <<EOF | sudo tee -a /etc/resolv.conf
+cat <<EOF | sudo tee /etc/resolv.conf -a
 nameserver 1.1.1.1 
 nameserver 8.8.8.8 
 EOF
@@ -67,11 +67,11 @@ sudo apt-get update
 sudo apt-get install -y kubelet=1.25.0-00 kubeadm=1.25.0-00 kubectl=1.25.0-00
 sudo apt-mark hold kubelet kubeadm kubectl
 
-sudo systemctl daemon-reload
-sudo systemctl enable kubelet
-sudo systemctl restart kubelet
-
 cat <<EOF > /etc/crictl.yaml
 runtime-endpoint: unix:///var/run/containerd/containerd.sock
 image-endpoint: unix:///var/run/containerd/containerd.sock 
 EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable kubelet
+sudo systemctl restart kubelet
