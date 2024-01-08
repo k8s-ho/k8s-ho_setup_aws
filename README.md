@@ -72,7 +72,7 @@ cd /k8s-ho_setup_aws/k8s_setup/
 ### 6. Now connect to the master. The account uses root.
 ```bash
 ssh -i [key file path] ubuntu@[master private ip]
-sudo su
+su
 k get node
 ```   
 
