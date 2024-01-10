@@ -32,7 +32,7 @@ cd k8s-ho_setup_aws
 provider.tf -> set your IAM information
 terraform init
 terraform plan
-terraform apply -> yes
+terraform apply --auto-approve
 ```
 => When terraform execution is completed, it shows the connection ip and private ip.   
 => Remember that the ip of the master node is used below.
