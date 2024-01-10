@@ -59,7 +59,7 @@ ls /k8s-ho_setup_aws/k8s_setup/
   
 ### 5. Join worker nodes to kubernetes (to be automated...)
 ```bash
-sudo su
+su
 cd /k8s-ho_setup_aws/k8s_setup/
 ./k8s_worker_setup.sh [master private ip]
 ``` 
