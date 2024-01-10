@@ -78,5 +78,5 @@ k get node
   
 ### ⏱️ Rollback
 ```bash
-terraform destroy -> yes
+terraform destroy --auto-approve
 ```
